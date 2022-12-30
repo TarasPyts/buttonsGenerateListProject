@@ -4,11 +4,12 @@ const generateListButton = document.querySelector('#generateList');
 const list = document.querySelector('ul');
 
 generateListButton.addEventListener("click", () => {
-    for (let i = 0; i < arr.length; i++) {
+  generateListButton.setAttribute("disabled", "true");
+  for (let i = 0; i < arr.length; i++) {
     let listItem = document.createElement("li");
     listItem.innerHTML = arr[i];
     list.appendChild(listItem)
-    } 
+  } 
 });
 
 
@@ -17,19 +18,15 @@ generateListButton.addEventListener("click", () => {
 const clearListButton = document.querySelector('#clearList');
 
 clearListButton.addEventListener("click", () => {
-    for (let i = 0; i < arr.length; i++) {
-    let listItem = document.createElement("li");
-    listItem.innerHTML = arr[i];
-    list.remove(listItem);
+  generateListButton.setAttribute("disabled", "false")
+    // clearListButton.setAttribute("disabled", "")
+    // generateListButton.setAttribute("enable", "")
+    const allListItems = document.querySelectorAll('li') 
+    for (let i = 0; i < allListItems.length; i++) {
+      allListItems[i].remove()
     }
 });
 
 
 
-if (list.length == 1) {
-    removeButton.generateListButton("disabled", "true");
-  }
 
-  if (generateList.hasAttribute("disabled")) {
-    generateList.removeAttribute("disabled");
-  }
