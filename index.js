@@ -4,7 +4,8 @@ const generateListButton = document.querySelector('#generateList');
 const list = document.querySelector('ul');
 
 generateListButton.addEventListener("click", () => {
-  generateListButton.setAttribute("disabled", "true");
+  generateListButton.setAttribute("disabled", "");
+  document.getElementById("clearList").disabled = false;
   for (let i = 0; i < arr.length; i++) {
     let listItem = document.createElement("li");
     listItem.innerHTML = arr[i];
@@ -18,9 +19,8 @@ generateListButton.addEventListener("click", () => {
 const clearListButton = document.querySelector('#clearList');
 
 clearListButton.addEventListener("click", () => {
-  generateListButton.setAttribute("disabled", "false")
-    // clearListButton.setAttribute("disabled", "")
-    // generateListButton.setAttribute("enable", "")
+  document.getElementById("clearList").disabled = true;
+  document.getElementById("generateList").disabled = false;
     const allListItems = document.querySelectorAll('li') 
     for (let i = 0; i < allListItems.length; i++) {
       allListItems[i].remove()
